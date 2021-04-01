@@ -10,6 +10,7 @@
   --size-48: 48px;
   --color-bg: #ffaa64;
   --color-white: #f5edde;
+  --color-black: #58391c;
   --color-primary: #ff6f3c;
 }
 
@@ -26,22 +27,26 @@ body {
   /* max-width: 1080px; */
   padding: var(--size-16) var(--size-32);
   margin: auto;
+  color: var(--color-black);
 }
 
 .btn {
   width: 100%;
   margin-top: var(--size-16);
   padding: var(--size-8);
-  background-color: var(--color-primary);
-  color: var(--color-white);
   font-size: var(--size-16);
-  border: none;
+  font-weight: bold;
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-white);
+  color: var(--color-primary);
   border-radius: 5px;
   cursor: pointer;
 }
 
 .btn:hover {
-  background-color: var(--color-bg);
+  border: 2px solid transparent;
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .btn:focus {
