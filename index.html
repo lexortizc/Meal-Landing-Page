@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <link rel="stylesheet" href="./css/style.css">
   <title>The Meal DB</title>
 </head>
@@ -10,7 +11,42 @@
   <header></header>
   <main>
     <section id="section-categories" class="section-categories"></section>
-    <section id="section-meal"></section>
+    <section id="section-meal" class="modal modal-hidden">
+      <article class="modal-content">
+        <div class="modal-header">
+          <h2 id="meal-title">Name</h2>
+          <button id="modal-meal-close" class="btn btn-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="meal-info">
+          <div class="img-thumb">
+            <div class="img-frame"></div>
+            <img id="meal-image">
+          </div>
+          <p id="meal-category"><b>Category: </b>Category</p>
+          <p id="meal-area"><b>Area: </b>Area</p>
+          <p id="meal-tags"><b>Tags: </b>Tags</p>
+        </div>
+        <div class="meal-instruction">
+          <h3>Ingredients</h3>
+          <ol id="meal-ingredients">
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+            <li>Ingredient</li>
+          </ol>
+          <h3>Instructions</h3>
+          <p id="meal-instructions">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, ipsam. Laborum, amet nemo quasi alias, earum possimus harum consequuntur repellat deserunt porro quod iure, dicta perferendis quisquam ducimus non provident!</p>
+        </div>
+      </article>
+    </section>
   </main>
   <footer></footer>
 

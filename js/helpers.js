@@ -8,17 +8,42 @@ export const getData = async (url) => {
   return data;
 }
 
+export const toggleModal = modal => {
+  modal.classList.toggle("modal-hidden")
+}
+
+export const getIngredients = meal => {
+  let measuredIngredients = "";
+  const ingredients = [];
+  const measures = [];
+
+  for(let ingredient in meal) {
+    (ingredient.includes("Ingredient") && meal[ingredient]) ? ingredients.push(meal[ingredient]) : null;
+    (ingredient.includes("Measure") && meal[ingredient]) ? measures.push(meal[ingredient]) : null;
+  }
+
+  ingredients.forEach( (element, index) => {
+    measuredIngredients += `<li>${ingredients[index]} (${measures[index]})</li>`
+  });
+
+  return measuredIngredients;
+}
+
 export const renderMeal = meal => {
-  let stringHTML = `<h2>${meal.strMeal}</h2>
-    <article>
-      <h3>${meal.strMeal}</h3>
-      <img src="${meal.strMealThumb}" alt="${meal.strMeal}" title="${meal.strMeal}">
-      <h4>${meal.strCategory}</h4>
-      <h4>${meal.strArea} | ${meal.strTags}</h4>
-      <p>${meal.strInstructions}</p>\
-    </article>`;
-    // ingredientes
-  DOM.meal.innerHTML = stringHTML;
+  (meal.strTags) ? null : meal.strTags = "No tags";
+
+  DOM.mealTitle.innerText = meal.strMeal;
+  DOM.mealImage.setAttribute("src", meal.strMealThumb);
+  DOM.mealImage.setAttribute("alt", meal.strMeal);
+  DOM.mealImage.setAttribute("title", meal.strMeal);
+  DOM.imgFrame.style.backgroundImage = `url('${meal.strMealThumb}')`;
+  DOM.mealCategory.innerHTML = `<b>Category: </b>${meal.strCategory}`;
+  DOM.mealArea.innerHTML = `<b>Area: </b>${meal.strArea}`;
+  DOM.mealTags.innerHTML = `<b>Tags: </b>${meal.strTags.replace(",", ", ")}`;
+  DOM.mealIngredients.innerHTML = getIngredients(meal);
+  DOM.mealInstructions.innerText = meal.strInstructions;
+
+  toggleModal(DOM.modal);
 }
 
 export const renderMeals = (data, categoryName) => {
@@ -27,7 +52,7 @@ export const renderMeals = (data, categoryName) => {
     stringHTML += `<article id="${meal.idMeal}" class="category-item">
       <h3 title="${meal.strMeal}">${meal.strMeal}</h3>
       <img src="${meal.strMealThumb}" alt="${meal.strMeal}" title="${meal.strMeal}">
-      <button class='btn meal-btn' value='${meal.strMeal}'>Show recipe</button>
+      <button class='btn btn-primary meal-btn' value='${meal.strMeal}'>Show recipe</button>
     </article>`;
   });
   DOM.categories.innerHTML = stringHTML;
@@ -49,7 +74,7 @@ export const renderCategories = data => {
     stringHTML += `<article id="${category.idCategory}" class="category-item">
       <h3 title="${category.strCategory}">${category.strCategory}</h3>
       <img src="${category.strCategoryThumb}" alt="${category.strCategory}" title="${category.strCategory}">
-      <button class='btn category-btn' value='${category.strCategory}'>Show dishes</button>
+      <button class='btn btn-primary category-btn' value='${category.strCategory}'>Show dishes</button>
     </article>`;
   });
   DOM.categories.innerHTML = stringHTML;

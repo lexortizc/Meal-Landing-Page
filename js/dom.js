@@ -1,3 +1,11 @@
 export const categories = document.querySelector('#section-categories');
-export const meals = document.querySelector('#section-meals');
-export const meal = document.querySelector('#section-meal');
+export const modal = document.querySelector('#section-meal');
+export const modalMealClose = document.querySelector('#modal-meal-close');
+export const mealTitle = document.querySelector('#meal-title');
+export const mealImage = document.querySelector('#meal-image');
+export const imgFrame = document.querySelector('.img-frame');
+export const mealCategory = document.querySelector('#meal-category');
+export const mealArea = document.querySelector('#meal-area');
+export const mealTags = document.querySelector('#meal-tags');
+export const mealIngredients = document.querySelector('#meal-ingredients');
+export const mealInstructions = document.querySelector('#meal-instructions');
